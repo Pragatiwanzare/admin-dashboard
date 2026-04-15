@@ -1,0 +1,55 @@
+<div class="container">
+  <h2 class="title">Course</h2>
+
+  <!-- Add Course Form -->
+  <div class="form-card">
+    <input type="text" placeholder="Course Name"
+           [(ngModel)]="course.name">
+
+    <input type="number" placeholder="Fees Amount"
+           [(ngModel)]="course.feesAmount">
+
+    <input type="text" placeholder="Duration"
+           [(ngModel)]="course.duration">
+
+    <input type="text" placeholder="Required Qualification"
+           [(ngModel)]="course.requiredQualification">
+
+    <input type="text" placeholder="Fees Policy"
+           [(ngModel)]="course.feesPolicy">
+
+    <button class="add-btn" (click)="addCourse()">
+      {{ isEditMode ? 'Update Course' : 'Add Course' }}
+    </button>
+  </div>
+
+  <!-- Course Table -->
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Fees</th>
+          <th>Duration</th>
+          <th>Qualification</th>
+          <th>Fees Policy</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let c of courseList; let i = index">
+          <td>{{ c.name }}</td>
+          <td>{{ c.feesAmount }}</td>
+          <td>{{ c.duration }}</td>
+          <td>{{ c.requiredQualification }}</td>
+          <td>{{ c.feesPolicy }}</td>
+          <td>
+            <button class="edit-btn" (click)="editCourse(i)">Edit</button>
+            <button class="delete-btn" (click)="deleteCourse(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

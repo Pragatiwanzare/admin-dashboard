@@ -1,0 +1,93 @@
+<div class="container mt-4">
+
+  <h2 class="text-center mb-4">College Management</h2>
+
+  <!-- Form Card -->
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <div class="row g-3">
+
+        <div class="col-md-4">
+          <label class="form-label">College Name</label>
+          <input class="form-control" [(ngModel)]="collegeData.cname">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">City</label>
+          <input class="form-control" [(ngModel)]="collegeData.city">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">University</label>
+          <input class="form-control" [(ngModel)]="collegeData.university">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">HOD Name</label>
+          <input class="form-control" [(ngModel)]="collegeData.hodname">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">HOD Contact</label>
+          <input class="form-control" [(ngModel)]="collegeData.hodcontact">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">TPO Name</label>
+          <input class="form-control" [(ngModel)]="collegeData.tponame">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">TPO Contact</label>
+          <input class="form-control" [(ngModel)]="collegeData.tpocontact">
+        </div>
+
+      </div>
+
+      <div class="text-end mt-3">
+        <button class="btn btn-success" (click)="saveCollege()">
+          {{ editId ? 'Update College' : 'Add College' }}
+        </button>
+        <button class="btn btn-secondary ms-2" (click)="resetForm()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="card shadow">
+    <div class="card-body">
+      <table class="table table-bordered table-striped text-center">
+        <thead class="table-dark">
+          <tr>
+            <th>College</th>
+            <th>City</th>
+            <th>University</th>
+            <th>HOD</th>
+            <th>HOD Contact</th>
+            <th>TPO</th>
+            <th>TPO Contact</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let c of colleges">
+            <td>{{ c.cname }}</td>
+            <td>{{ c.city }}</td>
+            <td>{{ c.university }}</td>
+            <td>{{ c.hodname }}</td>
+            <td>{{ c.hodcontact }}</td>
+            <td>{{ c.tponame }}</td>
+            <td>{{ c.tpocontact }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm me-1" (click)="editCollege(c)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteCollege(c.cname)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+</div>

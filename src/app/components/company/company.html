@@ -1,0 +1,70 @@
+<div class="container">
+  <h2 class="title">Company</h2>
+
+  <!-- Add Company Form -->
+  <div class="form-card">
+    <input type="text" placeholder="Company Name"
+      [(ngModel)]="company.cname">
+
+    <input type="text" placeholder="Location"
+      [(ngModel)]="company.location">
+
+    <input type="text" placeholder="Google Phone"
+      [(ngModel)]="company.google_phno">
+
+    <input type="email" placeholder="Email"
+      [(ngModel)]="company.email">
+
+    <input type="text" placeholder="Pincode"
+      [(ngModel)]="company.pincode">
+
+    <input type="text" placeholder="Area"
+      [(ngModel)]="company.area">
+
+    <input type="text" placeholder="HR Phone"
+      [(ngModel)]="company.hr_phone">
+
+    <input type="text" placeholder="HR Name"
+      [(ngModel)]="company.hr_name">
+
+    <button class="add-btn" (click)="addCompany()">
+      {{ isEditMode ? 'Update Company' : 'Add Company' }}
+    </button>
+  </div>
+
+  <!-- Company Table -->
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>Location</th>
+          <th>Google Phone</th>
+          <th>Email</th>
+          <th>Pincode</th>
+          <th>Area</th>
+          <th>HR Phone</th>
+          <th>HR Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let c of companyList; let i = index">
+          <td>{{ c.cname }}</td>
+          <td>{{ c.location }}</td>
+          <td>{{ c.google_phno }}</td>
+          <td>{{ c.email }}</td>
+          <td>{{ c.pincode }}</td>
+          <td>{{ c.area }}</td>
+          <td>{{ c.hr_phone }}</td>
+          <td>{{ c.hr_name }}</td>
+          <td>
+            <button class="edit-btn" (click)="editCompany(i)">Edit</button>
+            <button class="delete-btn" (click)="deleteCompany(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

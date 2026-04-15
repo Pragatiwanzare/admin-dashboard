@@ -1,0 +1,52 @@
+<div class="container">
+
+  <h2 class="title">Permissions</h2>
+
+  <!-- Form -->
+  <div class="card form-card">
+    <div class="form-row">
+
+      <div class="form-group">
+        <label>Permission</label>
+        <input
+          type="text"
+          [(ngModel)]="permissionData.permission"
+          placeholder="Enter permission"
+        />
+      </div>
+
+      <div class="form-group btn-group">
+        <button class="btn add-btn" (click)="savePermission()">
+          {{ editId ? 'Update Permission' : 'Add Permission' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="card table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Permission</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let p of permissions">
+          <td>{{ p.permission }}</td>
+          <td>
+            <button class="btn edit-btn" (click)="editPermission(p)">Edit</button>
+            <button class="btn delete-btn" (click)="deletePermission(p.permission)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>

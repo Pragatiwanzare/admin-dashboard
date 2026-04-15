@@ -1,0 +1,21 @@
+<div class="dashboard-container">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <h4 class="logo">Admin Panel</h4>
+
+    <a routerLink="/course" routerLinkActive="active">📘 Course</a>
+    <a routerLink="/college" routerLinkActive="active">🏫 College</a>
+    <a routerLink="/company" routerLinkActive="active">🏢 Company</a>
+    <a routerLink="/department" routerLinkActive="active">🏬 Department</a>
+    <a routerLink="/role" routerLinkActive="active">🛡 Role</a>
+    <a routerLink="/permission" routerLinkActive="active">🔑 Permission</a>
+    <a routerLink="/technologies" routerLinkActive="active">🔗 Technologies</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

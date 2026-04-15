@@ -1,0 +1,63 @@
+<div class="page">
+
+  <!-- Title -->
+  <h1 class="title">Departments</h1>
+
+  <!-- Form Card -->
+  <div class="card form-card">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Department Name</label>
+        <input
+          type="text"
+          [(ngModel)]="departmentData.name"
+          name="name"
+          placeholder="Enter department name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Location</label>
+        <input
+          type="text"
+          [(ngModel)]="departmentData.location"
+          name="location"
+          placeholder="Enter location"
+        />
+      </div>
+
+      <div class="form-group btn-group">
+        <button class="btn add-btn" (click)="saveDepartment()">
+          {{ editId ? 'Update Department' : 'Add Department' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table Card -->
+  <div class="card table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Department Name</th>
+          <th>Location</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let d of departments">
+          <td>{{ d.id }}</td>
+          <td>{{ d.name }}</td>
+          <td>{{ d.location }}</td>
+          <td>
+            <button class="btn edit-btn" (click)="editDepartment(d)">Edit</button>
+            <button class="btn delete-btn" (click)="deleteDepartment(d.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

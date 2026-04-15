@@ -1,0 +1,75 @@
+<div class="container">
+
+  <h2 class="title">Technologies</h2>
+
+  <!-- Form -->
+  <div class="card form-card">
+    <div class="form-row">
+
+      <div class="form-group">
+        <label>Technology Name</label>
+        <input
+          type="text"
+          [(ngModel)]="techData.techName"
+          placeholder="Enter technology name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Duration</label>
+        <input
+          type="text"
+          [(ngModel)]="techData.duration"
+          placeholder="e.g. 3 Months"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Version</label>
+        <input
+          type="text"
+          [(ngModel)]="techData.version"
+          placeholder="e.g. 17"
+        />
+      </div>
+
+      <div class="form-group btn-group">
+        <button class="btn add-btn" (click)="saveTechnology()">
+          {{ editId ? 'Update Technology' : 'Add Technology' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="card table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Technology</th>
+          <th>Duration</th>
+          <th>Version</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let t of technologies">
+          <td>{{ t.techId }}</td>
+          <td>{{ t.techName }}</td>
+          <td>{{ t.duration }}</td>
+          <td>{{ t.version }}</td>
+          <td>
+            <button class="btn edit-btn" (click)="editTechnology(t)">Edit</button>
+            <button class="btn delete-btn" (click)="deleteTechnology(t.techId)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
